@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceRoot}",
+                "${workspaceRoot}/Core/Inc",
+                "${workspaceRoot}/Drivers/CMSIS/Include",
+                "${workspaceRoot}/Drivers/Peripheral/Inc"
+            ],
+            "defines": [
+                "DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "STM32F446xx"
+            ],
+            "compilerPath": "C:\\MinGW\\bin\\gcc",
+            "windowsSdkVersion": "10.0.22000.0",
+            "intelliSenseMode": "linux-gcc-arm",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "browse": {
+                "path": [
+                    "${workspaceRoot}/**",
+                    "${workspaceRoot}/Core/Inc",
+                    "${workspaceRoot}/Drivers/CMSIS/Include",
+                    "${workspaceRoot}/Drivers/Peripheral/Inc"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
+        }
+    ],
+    "version": 4
+}
