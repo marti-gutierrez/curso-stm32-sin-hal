@@ -40,7 +40,8 @@ Core/Src/main.c \
 Core/Src/system_stm32f4xx.c \
 Drivers/Peripheral/Src/RCC.c \
 Drivers/Peripheral/Src/GPIO.c \
-Drivers/Peripheral/Src/EXT_IT.c
+Drivers/Peripheral/Src/EXT_IT.c \
+Drivers/Peripheral/Src/SysTick.c
 
 # ASM sources
 ASM_SOURCES =  \

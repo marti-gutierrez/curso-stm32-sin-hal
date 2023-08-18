@@ -5,7 +5,7 @@ void system_clock(void)
   // Reset PLL register
   RCC->PLLCFGR &= ~(RCC_PLLCFGR_PLLP | RCC_PLLCFGR_PLLN | RCC_PLLCFGR_PLLM);
   // give value of pll(p,n and m)
-  RCC->PLLCFGR |= (PLL_P << 16 | PLL_N << 8 | PLL_M << 0);
+  RCC->PLLCFGR |= (PLL_P << 16 | PLL_N << 6 | PLL_M << 0);
   // enable HSE clock
   RCC->CR |= RCC_CR_HSEON;
   // wait to HSE clock to ready
