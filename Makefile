@@ -41,7 +41,9 @@ Core/Src/system_stm32f4xx.c \
 Drivers/Peripheral/Src/RCC.c \
 Drivers/Peripheral/Src/GPIO.c \
 Drivers/Peripheral/Src/EXT_IT.c \
-Drivers/Peripheral/Src/SysTick.c
+Drivers/Peripheral/Src/SysTick.c \
+Drivers/Peripheral/Src/Timer_2.c \
+Drivers/Peripheral/Src/HD44780.c
 
 # ASM sources
 ASM_SOURCES =  \
@@ -164,8 +166,8 @@ $(BUILD_DIR):
 #######################################
 # clean up
 #######################################
-clean: $(BUILD_DIR)
-	Remove-Item .\$< -Recurse -Force
+clean: 
+	rm -fR $(BUILD_DIR)
   
 #######################################
 # dependencies

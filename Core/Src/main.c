@@ -1,33 +1,34 @@
 #include "main.h"
 #include "RCC.h"
-#include "GPIO.h"
-#include "EXT_IT.h"
+#include "HD44780.h"
 #include "SysTick.h"
 
 s_delay time;
+
+const char customChar[] = {
+    0x00,
+    0x0A,
+    0x0A,
+    0x0A,
+    0x00,
+    0x11,
+    0x0E,
+    0x00};
 
 int main(void)
 {
   system_clock();
   SysTick_init(180000);
-  gpio_led_init();
-  gpio_btn_init();
-  init_EXT_IT();
-  gpio_led_write(low);
-  delay_ms_NB(&time, 200);
+  HD44780_init();
+  HD44780_CGRAM(customChar, 0);
+  HD44780_xy(0, 8);
+  HD44780_character('M');
+  HD44780_xy(1, 0);
+  HD44780_string("Hello World!");
+  HD44780_xy(0, 0);
+  HD44780_character(0);
   while (1)
   {
-    if (delay_read(&time))
-    {
-      gpio_led_toggle();
-    }
   }
   return 0;
-}
-
-void EXTI15_10_IRQHandler(void)
-{
-  NVIC_ClearPendingIRQ(EXTI15_10_IRQn);
-  EXTI->PR |= EXTI_PR_PR13;
-  gpio_led_toggle();
 }
