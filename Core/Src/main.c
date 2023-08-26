@@ -1,34 +1,22 @@
 #include "main.h"
 #include "RCC.h"
-#include "HD44780.h"
+#include "USART.h"
 #include "SysTick.h"
 
-s_delay time;
+#define len_data 10
 
-const char customChar[] = {
-    0x00,
-    0x0A,
-    0x0A,
-    0x0A,
-    0x00,
-    0x11,
-    0x0E,
-    0x00};
+char data[len_data];
 
 int main(void)
 {
   system_clock();
   SysTick_init(180000);
-  HD44780_init();
-  HD44780_CGRAM(customChar, 0);
-  HD44780_xy(0, 8);
-  HD44780_character('M');
-  HD44780_xy(1, 0);
-  HD44780_string("Hello World!");
-  HD44780_xy(0, 0);
-  HD44780_character(0);
+  USART_init(115200);
+  printf("Hi Jorge\n\r");
   while (1)
   {
+    if (USART_rx_str(data, len_data, 10))
+      printf("Data: %s\n\r", data);
   }
   return 0;
 }

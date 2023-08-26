@@ -43,7 +43,9 @@ Drivers/Peripheral/Src/GPIO.c \
 Drivers/Peripheral/Src/EXT_IT.c \
 Drivers/Peripheral/Src/SysTick.c \
 Drivers/Peripheral/Src/Timer_2.c \
-Drivers/Peripheral/Src/HD44780.c
+Drivers/Peripheral/Src/HD44780.c \
+Drivers/Peripheral/Src/USART.c \
+Drivers/Peripheral/Src/direct_printf.c
 
 # ASM sources
 ASM_SOURCES =  \
@@ -126,7 +128,7 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 LDSCRIPT = STM32F446RETx_FLASH.ld
 
 # libraries
-LIBS = -lc -lm -lnosys 
+LIBS = -lc -lm -lnosys -u_printf_float -u_scanf_float
 LIBDIR = 
 LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 
